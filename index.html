@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Built by Ray Mallick 2015 -->
+<head>
+<!-- The Tag Searchr page uses Bootstrap 3 as its framework -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Tag Searchr for Flickr</title>
+    <!-- Google Font API -->
+    <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Bootstrap Select Custom Dropdown -->
+    <script src="js/bootstrap-select.js"></script>
+    <link href="css/bootstrap-select.css" rel="stylesheet">
+    <!-- Tag Searchr CSS. Look here for custom CSS work -->
+    <link href="css/tagsearchr.css" rel="stylesheet">
+    <!-- Simple boostrap fixed-to-top navbar  -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <a class="navbar-brand" href="#top">Tag Searchr</a>
+    </nav>
+
+</head>
+    <body>
+        <div class="jumbotron" name="top">
+            <h1>Tag Searchr!</h1>
+            <p class="lead">Search through Flickr's public photos</p>
+            <div class="input-group">
+                <!-- This is the primary input search bar for the page -->
+                <input id="searchterm" size="100" type="text" class="form-control" placeholder="Search tags here!" aria-describedby="sizing-addon2">
+            </div>
+            <div class="btn-group">
+                <!-- This is the primary search button -->
+                <button id="search" type="button" class="btn btn-primary">Search</button>
+                <!-- The custom dropdown selects whether to search 'all' the terms or 'any' terms -->
+                <select id="searchType" class="selectpicker show-tick" data-width="65px" data-style="btn btn-primary">
+                    <option value="any">Any</option>
+                    <option value="all">And</option>
+                </select>
+            </div>
+            <!-- This dropdown determines how the JSON document is sorted when making a request. Feeds to the sortType variable -->
+            <select id="sort" class="selectpicker show-tick" data-width="auto">
+                <option value="Relevance">Relevance</option>
+                <option value="date-posted-asc">Ascending Date Posted</option>
+                <option value="date-posted-desc">Descending Date Posted</option>
+                <option value="date-taken-asc">Ascending Date Taken</option>
+                <option value="date-taken-desc">Descending Date Taken</option>
+                <option value="interestingness-desc">Descending Intrestingness</option>
+                <option value="interestingness-asc">Ascending Interestingness</option>
+            </select>
+        </div>
+        <!-- Buttons to go next/prev page. The toggle class is used to hide the buttons prior to searching. Pager class is part of Bootstrap framework -->
+        <div class="bank">
+            <nav class="toggle">
+                <ul class="pager">
+                    <li id="prev-page"><a href="#">Prev.</a></li>
+                     <li id="asc-button"><a href="#">Sort A-Z</a></li>
+                     <li id="desc-button"><a href="#">Sort Z-A</a></li>
+                    <li id="next-page"><a href="#">Next</a></li>
+                </ul>
+            </nav>
+            <br />
+            <!--Container where the images are appended to form the javascript-->
+            <div>
+                <figure id="images"></figure>
+            </div>
+            <!-- Buttons to load more images. The toggle class is used to hide buttons prior to searching. TODO: Implement automatic loading by scrolling -->
+            <nav class="toggle">
+                <button class="btn btn-default" id="load">Load More</button>
+            </nav>
+        </div>    
+    
+        <!-- The primary JavaScript file.-->
+        <script src="js/app.js"></script>
+        <script src="js/longest.js"></script>
+       
+    </body>
+
+</html>
